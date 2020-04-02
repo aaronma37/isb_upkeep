@@ -7,7 +7,7 @@ import cv2
 crit_chance = .1
 hit_chance = .85
 
-crit = crit_chance*hit_chance
+crit = crit_chance*hit_chance*hit_chance
 miss = 1-hit_chance
 hit = 1-crit-miss
 
@@ -43,12 +43,12 @@ def generate_transition_matrix():
     return pg
 
 p = generate_transition_matrix()
-print('----Transition matrix-----')
+print('\n----Transition matrix-----       \nCrit chance: ', crit_chance, 'Hit chance: ', hit_chance,"\n")
 print(p)
 stationary = calculate_stationary(p)
 print()
 print('----Stationary distribution-----')
-print(stationary)
+print(np.real(stationary))
 print()
 print('----ISB upkeep-----')
 print(np.real(np.sum(stationary[1:])))
