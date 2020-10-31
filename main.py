@@ -2,14 +2,16 @@ import numpy as np
 import math
 import random
 from scipy import linalg
-import cv2
 
-crit_chance = .1
-hit_chance = .85
+crit_chance = .3
+hit_chance = .95
 
 crit = crit_chance*hit_chance*hit_chance
-miss = 1-hit_chance
-hit = 1-crit-miss
+# hit = 1-crit-miss
+# miss = 1-hit_chance
+
+hit = 1-crit
+miss = 0 # 1-hit_chance
 
 max_isb_count = 5
 
